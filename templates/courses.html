@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block title %}
+  Courses
+{% endblock %}
+
+{% block Home %}
+  active
+{% endblock %}
+{% block body %}
+
+<div class="container mt-2">
+  <h1 class="text-center">Available Courses</h1>
+  {% include "messages.html" %}
+  <div class="row">
+    
+    {% for c in courses %}
+    <div class="col-md-4">
+    <div class="card ml-3">
+      <img src="{{c.image.url}}" id="card-img" height="250" width="250" class="card-img-top p-3" alt="not found">
+      <div class="card-body">
+      <h3 class="card-title">{{c.courseName}} </h3>
+      <p class="card-text"> <b>Fee ${{c.courseFee}}</b> SGD | <b>Duration {{c.courseDuration}} Months</b></p>
+      <h4> {{c.stars}}<i class="fa-regular fa-star"></i></h4>
+      <a href="/course/{{c.courseName}}/" class="btn btn-primary">know More</a>
+      <a href="/enroll/" class="btn btn-outline-dark">Enroll</a>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+    <div class="col-md-4"></div>
+  </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block title %} Login {% endblock %} 
+{% block body %}
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+      <h1 class="text-center">Login</h1>
+      {% include "messages.html" %}
+      <form action="/auth/login/" method="post">{% csrf_token %}
+        <br />
+        <label for="email">Email</label>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control p-2 mb-3" 
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            required
+          />
+        </div>
+        <label for="pass1">Password</label>
+        <div class="form-group">
+          <input
+            type="Password"
+            class="form-control p-2 mb-3" 
+            id="password"
+            name="pass1"
+            placeholder="Enter Password"
+            required
+          />
+        </div>
+        <br />
+        <div class="d-grid gap-2 mb-3">
+          <button class="btn btn-info" type="submit">Login</button>
+        </div>
+        <br />
+        New User ? <a class= "text-info" href="/auth/signup/">Singup</a>
+      </form>
+    </div>
+
+    <div class="col-md-4"></div>
+  </div>
+  {% endblock %}
+</div>

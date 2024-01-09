@@ -1,0 +1,240 @@
+{% extends 'base.html' %} {% block title %}
+  Enroll
+{% endblock %}
+{% block Enroll %}
+  active
+{% endblock %}
+{% block body %}
+
+  <br>
+  <div class="row">
+
+      <h1 class="text-center">Enroll Now</h1>
+      <hr>
+      <div class="col-md-3"></div>
+
+      <div class="col-md-6">
+
+      {% include "messages.html" %}
+      <form action="/enroll/" method="post">
+        {% csrf_token %}
+        
+  
+            <label for="fname"><b>First Name </b></label>
+            <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fname"
+                    name="fname"
+                    required>
+            </div>
+          
+        
+            <label for="lname"><b>Last Name </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="lname"
+                name="lname"
+                required>
+            </div>
+
+          
+            <label for="fatherName"><b>Father Name </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="fatherName"
+                name="fatherName"
+                required>
+            </div>
+
+          
+            <label for="phone"><b>Mobile Number </b></label>
+            <div class="form-group">
+              <input
+                type="tel"
+                class="form-control"
+                id="phone"
+                name="phone"
+                required>
+            </div>
+
+          
+            <label for="alternateNumber"><b>Alternate No. </b></label>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                id="alternateNumber"
+                name="alternateNumber"
+                required>
+            </div>
+        
+
+            <div class="form-group">
+              <input type="hidden" naame="email" value="{{request.user.email}}" class="form-control" id="email" name="email">
+            </div>  
+
+          
+            <label for="college"><b>College </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="college"
+                name="college" placeholder="Enter College Name"
+                required>
+            </div>
+
+          
+            <label for="addr"><b>Address </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="addr"
+                name="addr"
+                required>
+            </div>
+
+          
+            <label for="landmark"><b>Landmark </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="landmark"
+                name="landmark"
+                required>
+            </div>
+
+          
+            <label for="street"><b>Street </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="street"
+                name="street"
+                required>
+            </div>
+
+          
+            <label for="pcode"><b>Pin Code </b></label>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                id="pcode"
+                name="pcode"
+                required>
+            </div>
+          
+          
+            <label for="city"><b>City </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                name="city"
+                required>
+            </div>
+
+          
+            <label for="companyname"><b>Company Name </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="companyname"
+                name="companyname" placeholder="Freshers Mention as NA"
+                required>
+            </div>
+
+          
+            <label for="Designation"><b>Designation </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="Designation"
+                name="Designation"
+                required>
+            </div>
+
+          
+            <label for="Qualification"><b>Qualification </b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="Qualification"
+                name="Qualification"
+                required>
+            </div>
+
+            <br>
+
+            <label><b>Computer Knowledge </b></label>
+            <div class="form-check-inline">
+            <label for="basic">Basic</label>
+            <input type="radio" class="form-check-input" id="basic" name="cknowledge" value="Basic" required>
+            </div>
+
+            <div class="form-check-inline">
+            <label for="intermediate">Intermediate</label>
+            <input type="radio" class="form-check-input" id="intermediate" name="cknowledge" value="Intermediate" required>
+            </div>
+
+            <div class="form-check-inline">
+            <label for="advance">Advance</label>
+            <input type="radio" class="form-check-input" id="Advance" name="cknowledge" value="Advance" required>
+            </div>
+            <hr>
+
+            <div class="form-group">
+              <label for="scourse"><b>Select Course</b></label>
+              <select class="form-control" id="scourse" name="scourse" required>
+                
+              <option value="select">Choose Course</option>
+                {% for c in courses %}
+                
+              <option value="{{c.courseName}}">{{c.courseName}}</option>
+              {% endfor %}
+              </select>
+            </div>
+              
+            <div class="form-group mt-2">
+            
+              <label for="ccourse"><b>Confirm Course</b></label>
+              <select class="form-control" id="ccourse" name="ccourse" required>
+                
+              <option value="confirm">Select & Course</option>
+              
+              {% for c in courses %}
+
+              <option value="{{c.courseName}}">{{c.courseName}}</option>
+              {% endfor %}
+              </select>
+            </div>
+
+
+            <hr>
+            <div class="d-grid gap-2 mb-3">
+              <button type="submit" class="btn btn-info get-started-btn">Register</button>
+            <div>
+            </form>
+            </div>
+              <div class="col-md-3"></div>
+          </div>
+
+
+
+        
+          
+{% endblock %}
